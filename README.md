@@ -19,13 +19,13 @@ array_of_hashes = [{ title: "Foo", status: "pending" },
 
 
 ::MultiInsert.call(
-      array_of_hashes,
-      { shard: shard,
-        model: ::Page,
-        returning: "id",
-        ignore_attributes: ["id"],
-        sql_append: "ON CONFLICT(title) DO UPDATE SET title = EXCLUDED.title" }
-    )
+  array_of_hashes,
+  { shard: shard,
+    model: ::Page,
+    returning: "id",
+    ignore_attributes: ["id"],
+    sql_append: "ON CONFLICT(title) DO UPDATE SET title = EXCLUDED.title" }
+  )
 ```
 
 # Options

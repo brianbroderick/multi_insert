@@ -42,6 +42,11 @@ array_of_hashes = [{ title: "Foo", status: "pending" },
 * ActiveRecord 4 or 5
 * Octopus, if you want sharding support. 
 
+# Caveats
+
+* You will need enough memory available to create your array of hashes. If there are too many original records, it may be good to chunk this up in your application code to avoid running out of memory. 
+* This does not do any validations. You will want to validate records before they are added to the array and handle failed validations according to your business rules (log them to a file, another table, etc) 
+
 # TODO
 
 * Turn into a Gem

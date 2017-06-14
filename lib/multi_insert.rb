@@ -160,8 +160,7 @@ class MultiInsert
          shard: shard,
          parameters: parameters } 
     raise "ErrorLog: Error in test" if defined?(Rails) && Rails.env == "test"
-  end
-  
+  end  
 
   def rails4?
     ::ActiveRecord::VERSION::MAJOR == 4

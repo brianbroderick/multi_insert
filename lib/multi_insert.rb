@@ -26,7 +26,7 @@ class MultiInsert
   rescue => exception
     notify(exception, { records: records, opts: opts.inspect }, shard)
   ensure
-    @values.clear if @values.present?
+    # To aid garbage collection    
     @records.clear if @records.present?
   end
 

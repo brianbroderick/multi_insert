@@ -20,7 +20,7 @@ class MultiInsert
 
     with_timestamps!
     inject_attribute_names_into_manager!
-    write_pages!
+    write_batches!
 
     results.empty? ? records : results
   rescue => exception
@@ -53,7 +53,7 @@ class MultiInsert
     @batch_size ||= opts.fetch(:batch_size, 0)
   end
 
-  def pages
+  def batches
     return 0 if batch_size.zero?
 
     (records.length.to_f / batch_size.to_f).ceil
@@ -100,11 +100,11 @@ class MultiInsert
     @injected = true
   end
 
-  def write_pages!
-    if pages.zero?
+  def write_batches!
+    if batches.zero?
       write!(records)
     else
-      1.upto(pages) { write!(records.pop(batch_size)) }
+      1.upto(batches) { write!(records.pop(batch_size)) }
     end
   end
 

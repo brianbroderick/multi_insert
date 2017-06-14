@@ -24,10 +24,18 @@ array_of_hashes = [{ title: "Foo", status: "pending" },
         model: ::Page,
         returning: "id",
         ignore_attributes: ["id"],
-        sql_append: "ON CONFLICT(unique_hash) DO UPDATE SET title = EXCLUDED.title" }
+        sql_append: "ON CONFLICT(title) DO UPDATE SET title = EXCLUDED.title" }
     )
 ```
 
+# Options
+
+* model (required) - The ActiveRecord model class (Page, User, etc)
+* returning (optional) - if you need return values for any columns such as "id"
+* shard (optional) - the name of the shard. If you use this, you'll need to have the gem Octopus installed.
+* batch_size (optional) - to do batch inserts, set the batch_size to the number of inserts per batch
+* ignore_attributes (optional) - the most common one here is to ignore the "id" column. It accepts a string for a single value or an array of strings. 
+* sql_append (optional) - if you need to append any raw SQl, do that here. This is useful for ON CONFLICT clauses, etc.
 
 # Dependencies
 

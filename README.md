@@ -35,7 +35,7 @@ array_of_hashes = [{ title: "Foo", status: "pending" },
 * shard (optional) - the name of the shard. If you use this, you'll need to have the gem Octopus installed.
 * batch_size (optional) - to do batch inserts, set the batch_size to the number of inserts per batch
 * ignore_attributes (optional) - the most common one here is to ignore the "id" column. It accepts a string for a single value or an array of strings. 
-* sql_append (optional) - if you need to append any raw SQl, do that here. This is useful for ON CONFLICT clauses, etc.
+* sql_append (optional) - if you need to append any raw SQL, do that here. This is useful for ON CONFLICT clauses, etc.
 
 # Dependencies
 

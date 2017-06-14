@@ -49,14 +49,14 @@ class MultiInsert
     @model ||= opts[:model]
   end
 
-  def page_size
-    @page_size ||= opts.fetch(:page_size, 0)
+  def batch_size
+    @batch_size ||= opts.fetch(:batch_size, 0)
   end
 
   def pages
-    return 0 if page_size.zero?
+    return 0 if batch_size.zero?
 
-    (records.length.to_f / page_size.to_f).ceil
+    (records.length.to_f / batch_size.to_f).ceil
   end
 
   def ignore_attributes
@@ -104,7 +104,7 @@ class MultiInsert
     if pages.zero?
       write!(records)
     else
-      1.upto(pages) { write!(records.pop(page_size)) }
+      1.upto(pages) { write!(records.pop(batch_size)) }
     end
   end
 

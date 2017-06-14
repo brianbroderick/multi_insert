@@ -152,6 +152,17 @@ class MultiInsert
     end
   end
 
+  def notify(exception, parameters = nil, shard = nil) # rubocop:disable Rails/Output
+    pp { name: self.class,
+         exception_class: exception.class,
+         exception: exception.message,
+         backtrace: exception.backtrace,
+         shard: shard,
+         parameters: parameters } 
+    raise "ErrorLog: Error in test" if defined?(Rails) && Rails.env == "test"
+  end
+  
+
   def rails4?
     ::ActiveRecord::VERSION::MAJOR == 4
   end

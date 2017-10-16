@@ -40,7 +40,7 @@ array_of_hashes = [{ title: "Foo", status: "pending" },
 # Dependencies
 
 * ActiveRecord 4 or 5
-* Octopus, if you want sharding support. 
+* [Octopus](https://github.com/thiagopradi/octopus), if you want sharding support. 
 
 # Caveats
 

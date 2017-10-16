@@ -3,7 +3,7 @@ Bulk Insert for ActiveRecord & PostgreSQL
 
 This allows you to bulk insert using ActiveRecord, which will greatly increase the speed of ActiveRecord inserts.
 It accepts an array of hashes as its first param, where the hash keys are column names. 
-You can batch insert and it also supports upserts if you add an [ON CONFLICT](https://www.postgresql.org/docs/9.6/static/sql-insert.html) clause.
+You can batch insert and it also supports upserts if you add an [ON CONFLICT](https://www.postgresql.org/docs/9.6/static/sql-insert.html) clause to the sql_append param.
 
 # Examples:
 

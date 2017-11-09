@@ -53,5 +53,4 @@ This should support any database that works with ActiveRecord since it uses Arel
 
 # TODO
 
-* Turn into a Gem
 * Add tests
